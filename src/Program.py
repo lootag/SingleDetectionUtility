@@ -1,3 +1,4 @@
+import argparse
 from injector import Injector, Binder, inject
 from typing import Dict
 from Preprocessing.RetinaNet.Interfaces.IGenerateTrainingFilesService import IGenerateTrainingFilesService
@@ -20,9 +21,11 @@ class Program:
                 self.modelFactory = modelFactory
                 
     
-    def Main(self) -> None:
+    def Main(self, parser: argparse.ArgumentParser) -> None:
+        args = parser.parse_args()
+        model = args.model
         config: Dict = self.__Configure()
-        Model = self.modelFactory.CreateModel(config["model"], bindServices = self.BindPreprocessingServices)
+        Model = self.modelFactory.CreateModel(model, bindServices = self.BindPreprocessingServices)
         Model.Preprocess(config)
         Model.Train()
         Model.Predict()
@@ -36,9 +39,12 @@ class Program:
         binder.bind(ISeparateImagesFromAnnotationsService, to=SeparteImagesFromAnnotationsService())
         binder.bind(IModelFactory, to=ModelFactory())
 
+parser = argparse.ArgumentParser(description = "A program to train a detector with some logos")
+parser.add_argument('model',
+                    help = "The detector you want to train")
 injector: Injector = Injector(BindServices)
 program = injector.get(Program)
 
 if __name__ == "__main__":
-    program.Main()
+    program.Main(parser = parser)
                 
