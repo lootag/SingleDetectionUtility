@@ -1,9 +1,10 @@
+import sys
 import os
 from shutil import copyfile
 from interface import implements
-from Interfaces.ISeparateImagesFromAnnotationsService import ISeparateImagesFromAnnotationsService
 from typing import *
 import types
+from Preprocessing.RetinaNet.Interfaces.ISeparateImagesFromAnnotationsService import ISeparateImagesFromAnnotationsService
 
 class SeparteImagesFromAnnotationsService(implements(ISeparateImagesFromAnnotationsService)):
     def SeparateImagesFromAnnotations(self, imagesFolder: str, annotationsFolder: str):
