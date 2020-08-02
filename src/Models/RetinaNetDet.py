@@ -1,3 +1,4 @@
+import os
 from interface import implements
 from Preprocessing.RetinaNet.Interfaces.IGenerateTrainingFilesService import IGenerateTrainingFilesService
 from Preprocessing.RetinaNet.Services.GenerateTrainingFilesService import GenerateTrainingFilesService
@@ -27,12 +28,7 @@ class RetinaNetDet(implements(IModelService)):
                                                                 valSize = config["valSize"])
     
     def Train(self):
-        print("training retinanet")
+        os.system("../keras-retinanet/keras_retinanet/bin/train.py --tensorboard-dir ../TrainingOutput/Retinanet --snapshot-path ../TrainingOutput/Retinanet/Snapshots --random-transform --steps 100 pascal ../LogosVOC")
     
     def Predict(self):
         print("testing retinanet")
-    
-    def __BindServices(self, binder: Binder):
-        binder.bind(IGenerateTrainingFilesService, to=GenerateTrainingFilesService())
-        binder.bind(ISeparateImagesFromAnnotationsService, to=SeparteImagesFromAnnotationsService())
-

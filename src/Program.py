@@ -28,7 +28,7 @@ class Program:
         Model = self.modelFactory.CreateModel(model, bindServices = self.BindPreprocessingServices)
         Model.Preprocess(config)
         Model.Train()
-        Model.Predict()
+        #Model.Predict()
         
     def __Configure(self) -> Dict:
         with open("config.json") as config:

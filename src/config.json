@@ -1,5 +1,5 @@
 {
-    "imagesFolder": "../LogosVOC/JPGImages",
+    "imagesFolder": "../LogosVOC/JPEGImages",
     "annotationsFolder": "../LogosVOC/Annotations",
     "mainFolder" : "../LogosVOC/ImageSets/Main",
     "valSize": 0.4
