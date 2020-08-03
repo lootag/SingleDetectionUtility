@@ -75,7 +75,8 @@ voc_classes = {
     'balenciagaw' : 44,
     'ysl'         : 45,
     'saintlaurent': 46,
-    'yves'        : 47
+    'yves'        : 47,
+    'lv'          : 48
     
 }
 
