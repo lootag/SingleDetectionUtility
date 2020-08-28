@@ -76,7 +76,8 @@ voc_classes = {
     'ysl'         : 45,
     'saintlaurent': 46,
     'yves'        : 47,
-    'lv'          : 48
+    'lv'          : 48,
+    'Nan'         : 49
     
 }
 
