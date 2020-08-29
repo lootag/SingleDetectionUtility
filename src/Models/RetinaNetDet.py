@@ -19,6 +19,11 @@ class RetinaNetDet(implements(IModelService)):
     def Create(bindServices):
         inject: Injector = Injector(bindServices)
         return inject.get(RetinaNetDet)
+    
+    @staticmethod
+    def BindServices(binder: Binder):
+        binder.bind(IGenerateTrainingFilesService, to=GenerateTrainingFilesService)
+        binder.bind(ISeparateImagesFromAnnotationsService, to=SeparteImagesFromAnnotationsService)
 
     def Preprocess(self, config: Dict):
         self.separateImagesFromAnnotationsService.SeparateImagesFromAnnotations(imagesFolder = config["imagesFolder"], 

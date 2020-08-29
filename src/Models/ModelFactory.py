@@ -4,6 +4,6 @@ from Models.IModelService import IModelService
 from Models.RetinaNetDet import RetinaNetDet
 
 class ModelFactory(implements(IModelFactory)):
-    def CreateModel(self, model: str, bindServices) -> IModelService:
+    def CreateModel(self, model: str) -> IModelService:
         if model == "retinanet":
-            return RetinaNetDet.Create(bindServices = bindServices)
+            return RetinaNetDet.Create(bindServices = RetinaNetDet.BindServices)

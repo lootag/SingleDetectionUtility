@@ -25,7 +25,7 @@ class Program:
         args = parser.parse_args()
         model = args.model
         config: Dict = self.__Configure()
-        Model = self.modelFactory.CreateModel(model, bindServices = self.BindPreprocessingServices)
+        Model = self.modelFactory.CreateModel(model)
         Model.Preprocess(config)
         Model.Train()
         #Model.Predict()
@@ -34,11 +34,6 @@ class Program:
         with open("config.json") as config:
             return json.load(config)
     
-    def BindPreprocessingServices(self, binder: Binder):
-        binder.bind(IGenerateTrainingFilesService, to=GenerateTrainingFilesService())
-        binder.bind(ISeparateImagesFromAnnotationsService, to=SeparteImagesFromAnnotationsService())
-        binder.bind(IModelFactory, to=ModelFactory())
-
 parser = argparse.ArgumentParser(description = "A program to train a detector with some logos")
 parser.add_argument('model',
                     help = "The detector you want to train")
