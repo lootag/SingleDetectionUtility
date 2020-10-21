@@ -33,7 +33,7 @@ class RetinaNetDet(implements(IModelService)):
                                                                 valSize = config["valSize"])
     
     def Train(self):
-        os.system("../keras-retinanet/keras_retinanet/bin/train.py --no-evaluation --batch-size 16 --tensorboard-dir ../../content/drive/My\ Drive/SingleDetectionUtility/TrainingOutput --snapshot-path ../../content/drive/My\ Drive/SingleDetectionUtility/TrainingOutput/Snapshots --steps 800 pascal ../LogosVOC")
+        os.system("../keras-retinanet/keras_retinanet/bin/train.py --no-evaluation --batch-size 16 --tensorboard-dir ../../content/drive/My\ Drive/SingleDetectionUtility/TrainingOutput --snapshot-path ../../content/drive/My\ Drive/SingleDetectionUtility/TrainingOutput/Snapshots --snapshot ../../content/drive/My\ Drive/SingleDetectionUtility/TrainingOutput/Snapshots/resnet50_pascal_20.h5 --initial-epoch 20 --steps 800 pascal ../LogosVOC")
     
     def Predict(self):
         print("testing retinanet")
