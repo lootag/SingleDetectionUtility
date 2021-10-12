@@ -25,7 +25,7 @@ Markdown==3.2.2
 matplotlib==3.3.0
 numpy==1.19.1
 oauthlib==3.1.0
-opencv-python==3.3.0.10
+opencv-python==4.2.0.32
 opt-einsum==3.3.0
 Pillow==7.2.0
 progressbar==2.5
