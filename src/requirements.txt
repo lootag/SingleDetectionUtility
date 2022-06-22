@@ -23,7 +23,7 @@ keras-resnet==0.1.0
 kiwisolver==1.2.0
 Markdown==3.2.2
 matplotlib==3.3.0
-numpy==1.19.1
+numpy==1.22.0
 oauthlib==3.1.0
 opencv-python==3.3.0.10
 opt-einsum==3.3.0
